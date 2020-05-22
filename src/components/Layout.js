@@ -1,6 +1,7 @@
 import React, {useState} from "react";
-import panda from "../panda-img.jpg"
-import pandaFoot from "../panda-Foot.jpg"
+import panda from "../image/panda-img.jpg"
+import pandaFoot from "../image/panda-Foot.jpg"
+
 import 'bootstrap/dist/css/bootstrap.css';
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
 
