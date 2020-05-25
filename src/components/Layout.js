@@ -18,7 +18,7 @@ const Layout = () => {
             <div className="col-sm-9">
                 <div className="row pt-2">
                 <img className="panda-img ml-3" src={panda} alt="panda-image" />
-                <h2 className="mt-2">Panda</h2>
+                <h2 className="mt-2 font-weight-bold">Panda</h2>
                 </div>
             </div>
 

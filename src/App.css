@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 *{
   user-select: none;
+  font-family: 'Montserrat', sans-serif;
 }
+
+/* navigation-bar css starts here */
 
 .panda-img{
   height: 4rem;
@@ -44,10 +49,11 @@
   border: none;
 }
 
+/* navigation-bar css ends here */
+
 .left-div
 {
-  height: 50rem;
-  border : 1px solid rgb(77, 9, 9);
+  height: 45.5rem;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -58,20 +64,61 @@
 
 
 .middle-div{
-  height: 50rem;
-  border : 1px solid black;
+  height: 45.5rem;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
 .right-div{
-  height: 50rem;
-  border : 1px solid black;
+  height: 45.5rem;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
 .flag{
-  height: 2rem;
+  height: 2.2rem;
+  
+}
 
+.flag:hover{
+  transition: 0.2s;
+  transform: scale(1.2, 1.2);
+}
+
+.country-name{
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.country-name:hover{
+  transition: 0.2s;
+  transform: scale(1.1, 1.1);
+}
+
+.news-title-div{
+  /* border: 1px solid rgb(146, 146, 134); */
+  border: 1px solid #2BCF61;
+  border-radius: 4px;
+  margin-top: 0.7rem;
+  margin-right: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+/* .news-title:hover{
+  transition: 0.2s;
+  transform: scale(1, 1.2);
+} */
+
+.read-more{
+  margin-top: 1rem;
+  color:#2BCF61 ;
+  text-decoration: none;
+}
+
+.frame{
+  height: 4.5rem;
+  width: 10rem;
+  border: 1px solid;
 }
