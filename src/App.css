@@ -117,6 +117,11 @@
   text-decoration: none;
 }
 
+.read-more:hover{
+  transition: 0.2s;
+  transform: scale(1, 1.1);
+}
+
 .frame{
   height: 4.5rem;
   width: 10rem;
