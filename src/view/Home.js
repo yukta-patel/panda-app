@@ -1,35 +1,31 @@
-import React, {useEffect} from "react";
+import React, {useState} from "react";
 import {Layout, CountryList} from "../components"
-import { useDispatch, useSelector } from "react-redux";
-import { fetchSingleNews } from "../redux/actions/news";
+import { useSelector } from "react-redux";
 
 const Home = () => {
 
-    const dispatch = useDispatch();
+    
 
-    const { loading, news, singleloaging, singlenews } = useSelector(state => ({
+    const { loading, news } = useSelector(state => ({
         loading: state.newsReducer.loading,
         news: state.newsReducer.news,
-        singleloaging: state.newsReducer.singleNews.loading,
-        singlenews: state.newsReducer.singleNews.news,
       }));
+
+    const [singleNews, setsinglenews] = useState({});
+
 
       // const { loadingsingle, newssingle } = useSelector(state => ({
       //   loadingsingle: state.postsReducer.singleNews.loading,
       //   newssingle: state.postsReducer.singleNews.news
       // }));
     
-      // useEffect(() => {
-      //   dispatch(fetchNews());
-      // }, [dispatch]);
+        function showLastDiv(){
+        document.getElementById('RightDiv').style.display = "block";
+      }
 
-      
-
-    return (
+     return (
     <div>
         <Layout />
-        
-      
 
       <div className="row border">
          
@@ -37,7 +33,7 @@ const Home = () => {
             <CountryList />
           </div> 
 
-          <div className="col-sm-4">
+          {/* <div className="col-sm-4">
                 <div className="middle-div">  {loading ? (
               <div>Loding...</div>
               ) : (
@@ -55,78 +51,55 @@ const Home = () => {
               </div>
               )}
             </div>
-          </div>
-
-          <div className="col-sm-6">
-            <div className="right-div">  
-            {singleloaging ? (
-                <div>Loding...</div>
-                ) : (
-                <div>
-                  {singlenews !== null &&
-                    singlenews.map(newsingle => (
-                      <div key={newsingle.id}>
-                        <div className="news-title-div">
-                          <div className="news-title">{newsingle.title}</div>
-                        </div>
-                      </div>
-                    ))}
-
-                </div>
-                )}
-            </div>
-          </div>
-
-          {/* <div className="col-sm-6">
-            <div className="right-div">  
-            {singleloaging ? (
-                <div>Loding...</div>
-                ) : (
-                <div>
-                  {singlenews !== null &&
-                    singlenews.map(newsingle => (
-                      <div key={newsingle.id}>
-                        <div className="news-title-div">
-                          <div className="news-title">{newsingle.title}</div>
-                        </div>
-                      </div>
-                    ))}
-
-                </div>
-                )}
-            </div>
           </div> */}
 
-           
-
-
-
-          {/* <div className="col-sm-6">
-            <div className="right-div">  
-            {singleloaging ? (
+          <div className="col-sm-4">
+                <div className="middle-div"> 
+                 {loading ? (
                 <div>Loding...</div>
                 ) : (
                 <div>
-                  {singlenews !== null &&
-                  singlenews.map(newsingle => (
-                     
-                       <>
-                      {news !== null &&
-                         (
-                        
-
+                  {news !== null &&
+                    news.map(news => (
                       <div>
                         <div className="news-title-div">
-                        <div className="news-title">{news.title}</div>
+                          <div className="news-title">{news.title}</div>
+                          <div className="news-source">-{news.source.name}</div>
+                          <div className="read-more"><p onClick={() => {setsinglenews(news);showLastDiv()}}>Read More</p></div>
                         </div>
                       </div>
-                      
+                    ))}
 
-                      )} 
-                      </>      
-                  ))}
+                </div>
+              )}
+            </div>
+          </div>
 
-                        
+          <div className="col-sm-6 display" id="RightDiv">
+            <div className="right-div font-weight-bold">
+              <div className="right-title">{singleNews.title}</div>
+              <p className="published-at">Publishes at : {singleNews.publishedAt}</p>
+              <img className="right-img" src={singleNews.urlToImage} />
+              <div className="right-description">{singleNews.description}</div>
+              <div className="right-description">{singleNews.content}</div>
+              <div><p className="mt-3 more-information">For more information <a href={singleNews.url}>click here</a></p></div>
+            </div>
+          </div>
+
+          {/* <div className="col-sm-6">
+            <div className="right-div">  
+            {singleloaging ? (
+                <div>Loding...</div>
+                ) : (
+                <div>
+                  {singlenews !== null &&
+                    singlenews.map(newsingle => (
+                      <div key={newsingle.id}>
+                        <div className="news-title-div">
+                          <div className="news-title">{newsingle.title}</div>
+                        </div>
+                      </div>
+                    ))}
 
                 </div>
                 )}
@@ -134,53 +107,8 @@ const Home = () => {
           </div> */}
 
 
-
-              {/* <div className="col-sm-4">
-                <div className="middle-div">  {loading ? (
-              <div>Loding...</div>
-              ) : (
-              <div>
-                {news !== null &&
-                  news.map(news => (
-                    <>
-
-                    {singlenews !== null &&(
-                      <>
-                    <div>
-                      <div className="news-title-div">
-                        <div className="news-title">{news.title}</div>
-                        <div className="read-more"><p onClick={() => {dispatch(fetchSingleNews())}}>Read More</p></div>
-                      </div>
-                    </div>
-
-                    <div className="news-title-div">
-                    <div className="news-title">{singlenews.title}</div>
-                    </div>
-                    </>
-                    )}
-                      
-
-                    </>
-                  ))}
-
-              </div>
-              )}
-            </div>
-          </div> */}
-
-         
-          
-
-
-
-
-
-
-
-      
-
       </div>
-      </div>
+    </div>
 
        
     
