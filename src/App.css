@@ -77,7 +77,6 @@
 
 .flag{
   height: 2.2rem;
-  
 }
 
 .flag:hover{
@@ -87,7 +86,7 @@
 
 .country-name{
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .country-name:hover{
@@ -98,6 +97,7 @@
 .news-title-div{
   /* border: 1px solid rgb(146, 146, 134); */
   border: 1px solid #2BCF61;
+  border-bottom: 4px solid #2BCF61;
   border-radius: 4px;
   margin-top: 0.7rem;
   margin-right: 1rem;
@@ -143,6 +143,7 @@
   font-size: 2rem;
   font-weight: bold;
   margin-top: 1rem;
+  
 }
 
 .published-at{
@@ -152,21 +153,260 @@
 
 .right-img{
   height: 30rem;
-  width: 55.5rem;
+  width: 57.5rem;
 }
 
 .right-description{
   margin-top: 1rem;
   font-size: 1.2rem;
   font-weight: 550;
+  text-align: justify;
 }
 
 .more-information{
-  /* color: rgb(235, 132, 35); */
   color: rgb(56, 187, 16);
   text-decoration: none;
+  text-align: justify;
 }
 
 .display{
   display: none;
+}
+
+.xyz{
+  display: none;
+}
+
+/* .main-div{
+  display: block;
+} */
+
+
+@media only screen and (min-width: 1025px) and (max-width : 1440px){
+
+    .sign-up
+    {
+      font-size: 0.8rem;
+      height: 2rem;
+      width: 4rem;
+    }
+
+    .log-in{
+      font-size: 0.8rem;
+      height: 2rem;
+      width: 4rem;
+    }
+
+    .panda-foot-img
+    {
+      height: 2rem;
+      width: 2rem;
+      margin-top: 0.5rem;
+    }
+
+    .country-name{
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .left-div
+    {
+      height: 29rem;
+    }
+
+
+    .middle-div
+    {
+      height: 29rem;
+    }
+
+    .right-div{
+      height: 29rem;
+    }
+
+    .right-img{
+      height: 20rem;
+      width: 43rem;
+    }
+}
+
+@media only screen and (min-width: 767px) and (max-width : 1024px){
+
+    .sign-up
+    {
+      font-size: 0.7rem;
+      height: 1.6rem;
+      width: 4rem;
+    }
+
+    .log-in{
+      font-size: 0.7rem;
+      height: 1.6rem;
+      width: 4rem;
+    }
+
+    .panda-foot-img
+    {
+      height: 1.5rem;
+      width: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .country-name{
+      font-size: 0.9rem;
+    }
+
+    .flag{
+      height: 1.5rem;
+    }
+
+    .left-div
+    {
+      height: 29rem;
+    }
+    
+    .middle-div
+    {
+      height: 29rem;
+    }
+
+    .right-div{
+      height: 29rem;
+    }
+
+    .right-img{
+      height: 15rem;
+      width: 30rem;
+    }
+
+}
+
+@media only screen and (min-width: 426px) and (max-width : 768px){
+  .sign-up
+    {
+      font-size: 0.6rem;
+      height: 1.3rem;
+      width: 3.3rem;
+      padding: 0;
+    }
+
+    .log-in{
+      font-size: 0.6rem;
+      height: 1.3rem;
+      width: 3.3rem;
+      padding: 0;
+    }
+
+    .panda-foot-img
+    {
+      height: 1rem;
+      width: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .country-name{
+      font-size: 0.6rem;
+    }
+
+    .flag{
+      height: 1.4rem;
+    }
+
+    .left-div
+    {
+      height: 29rem;
+    }
+    
+    .middle-div
+    {
+      height: 29rem;
+    }
+
+    .right-div{
+      height: 29rem;
+    }
+
+    .right-img{
+      height: 10rem;
+      width: 22rem;
+    }
+
+}
+
+
+
+
+
+
+
+@media only screen and (min-width: 768px){
+  .dropdown-div{
+    display: none;
+  }
+
+}
+
+@media only screen and (min-width: 320px) and (max-width:374px){
+  .main-div{
+    display: none;
+  }
+
+  .dropdown-div{
+    display: block;
+  }
+
+  .country-name{
+    font-size: 1.5rem;
+    margin-left: 2rem;
+  }
+
+  .flag{
+    height: 2.5rem;
+    margin-left: 3rem;
+  }
+
+}
+
+@media only screen and (min-width: 375px) and (max-width:424px){
+
+  .main-div{
+    display: none;
+  }
+
+  .dropdown-div{
+    display: block;
+  }
+
+  .country-name{
+    font-size: 1.5rem;
+    margin-left: 2rem;
+  }
+
+  .flag{
+    height: 2.5rem;
+    margin-left: 4rem;
+  }
+
+}
+
+@media only screen and (min-width: 425px) and (max-width:767px){
+
+  .main-div{
+    display: none;
+  }
+
+  .dropdown-div{
+    display: block;
+  }
+
+  .country-name{
+    font-size: 1.8rem;
+    margin-left: 2rem;
+  }
+
+  .flag{
+    height: 2.5rem;
+    margin-left: 5rem;
+  }
+
 }
