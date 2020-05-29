@@ -173,8 +173,34 @@
   display: none;
 }
 
-.xyz{
+.mobile-dropdown-div{
+  display: block;
+}
+
+.mobile-title-div{
   display: none;
+  margin-left: 0.5rem;
+}
+
+.mobile-description-div{
+  display: none;
+  padding: 0.5rem;
+}
+
+.back-btn{
+  margin-left: 0.2rem;
+  font-size:1rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  background-color: #2BCF61;
+  color: white;
+  height: 2rem;
+  width: 5rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  padding: 0.1rem;
+  border: none;
+
 }
 
 /* .main-div{
@@ -340,7 +366,7 @@
 
 
 @media only screen and (min-width: 768px){
-  .dropdown-div{
+  .mobile-dropdown-div{
     display: none;
   }
 
@@ -351,7 +377,7 @@
     display: none;
   }
 
-  .dropdown-div{
+  .mobile-dropdown-div{
     display: block;
   }
 
@@ -365,6 +391,29 @@
     margin-left: 3rem;
   }
 
+  .right-title{
+    font-size: 1.2rem;
+  }
+  
+  .published-at{
+      font-size: 1rem;
+      margin-top: 0.5rem;
+  }
+  
+  .right-img{
+    height: 10rem;
+    width: 100%;
+    
+  }
+  
+  .right-description{
+    font-size: 1rem;
+  }
+  
+  .more-information{
+    font-weight: bold;
+  }
+
 }
 
 @media only screen and (min-width: 375px) and (max-width:424px){
@@ -373,7 +422,7 @@
     display: none;
   }
 
-  .dropdown-div{
+  .mobile-dropdown-div{
     display: block;
   }
 
@@ -387,6 +436,39 @@
     margin-left: 4rem;
   }
 
+  .country-name{
+    font-size: 1.5rem;
+    margin-left: 2rem;
+  }
+
+  .flag{
+    height: 2.5rem;
+    margin-left: 3rem;
+  }
+
+  .right-title{
+    font-size: 1.2rem;
+  }
+  
+  .published-at{
+      font-size: 1rem;
+      margin-top: 0.5rem;
+  }
+  
+  .right-img{
+    height: 10rem;
+    width: 100%;
+    
+  }
+  
+  .right-description{
+    font-size: 1rem;
+  }
+  
+  .more-information{
+    font-weight: bold;
+  }
+
 }
 
 @media only screen and (min-width: 425px) and (max-width:767px){
@@ -395,7 +477,7 @@
     display: none;
   }
 
-  .dropdown-div{
+  .mobile-dropdown-div{
     display: block;
   }
 
@@ -407,6 +489,29 @@
   .flag{
     height: 2.5rem;
     margin-left: 5rem;
+  }
+
+  .right-title{
+    font-size: 1.2rem;
+  }
+  
+  .published-at{
+      font-size: 1rem;
+      margin-top: 0.5rem;
+  }
+  
+  .right-img{
+    height: 10rem;
+    width: 100%;
+    
+  }
+  
+  .right-description{
+    font-size: 1rem;
+  }
+  
+  .more-information{
+    font-weight: bold;
   }
 
 }
