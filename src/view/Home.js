@@ -21,12 +21,13 @@ const Home = () => {
       }
 
       const SetCountryNews=(event)=>{
+        document.getElementById('title-div').style.display="block";
+        document.getElementById('Description-div').style.display="none";
         console.log(event.target.value)
         dispatch(fetchNews(event.target.value))
       }
 
       function HideNewsTitle(){
-        document.getElementById('dropdown-div').style.display="none";
         document.getElementById('title-div').style.display="none";
         document.getElementById('Description-div').style.display="block"
       }
@@ -58,7 +59,7 @@ const Home = () => {
       ];
 
   return (
-  <div>
+  <div className="container-fluid">
 
     <div>
         <Layout />
@@ -112,16 +113,16 @@ const Home = () => {
     <div className="mobile-dropdown-div">
   
         <select className="dropdown" id="dropdown-div" onChange={SetCountryNews}>
-          <option>Select Country</option>
+          <option className="options">Select Country</option>
             {CountryArray !== null &&
              CountryArray.map((country) => (
-              <option value={country.key}>{country.value}</option>
+              <option className="options" value={country.key}>{country.value}</option>
           ))}
         </select>
 
         <div className="mobile-title-div" id="title-div">
         {loading ? (
-                <div>Loding...</div>
+                <div className="loading">Loding...</div>
                 ) : (
                 <div>
                   {news !== null &&
@@ -138,7 +139,7 @@ const Home = () => {
         </div>
 
         <div className="mobile-description-div" id="Description-div">
-          <button className="back-btn" onClick={backToHome}>Back</button>
+          <button className="back-btn" onClick={backToHome}>&lt;</button>
           <div className="right-title">{singleNews.title}</div>
           <p className="published-at">Publishes at : {singleNews.publishedAt}</p>
           <img className="right-img" src={singleNews.urlToImage} />

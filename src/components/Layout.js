@@ -13,21 +13,24 @@ const Layout = () => {
     const toggleNavbar = () => setCollapsed(!collapsed);
 
     return ( 
-        <div className="row">
-            <div className="col-sm-9">
+        <div className="container-fluid">
+        <div className="row nav-div">
+           
+
+            <div className="col-9">
                 <div className="row pt-2">
-                <img className="panda-img ml-3" src={panda} alt="panda-image" />
+                <img className="panda-img" src={panda} alt="panda-image" />
                 <h2 className="mt-2 font-weight-bold">Panda</h2>
                 </div>
             </div>
 
 
-            <div className="col-sm-3">
+            <div className="col-3">
                 <Navbar color="faded" light expand="md">
-                    <NavbarToggler onClick={toggleNavbar}/>
+                    <NavbarToggler className="toggle-btn" onClick={toggleNavbar}/>
                     <Collapse isOpen={!collapsed} navbar>
 
-                    <div className="col d-flex justify-content-end">
+                    <div className="right-nav-div">
                     <Nav navbar>
                         <NavItem>
                         <NavLink href="#"><img className="panda-foot-img" src={pandaFoot} alt="panda-foot" /></NavLink>
@@ -45,7 +48,9 @@ const Layout = () => {
                 </Navbar>
                 
             </div>
-        </div>
+            </div>
+            </div>
+        
     
     )
 }
