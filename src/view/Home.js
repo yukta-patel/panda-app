@@ -3,9 +3,11 @@ import {Layout, CountryList} from "../components"
 import { useSelector } from "react-redux";
 import { fetchNews } from "../redux/actions/news";
 import { useDispatch} from "react-redux";
+import moment from "moment";
 
 
 const Home = () => {
+
 
     const dispatch = useDispatch();
 
@@ -15,6 +17,10 @@ const Home = () => {
       }));
 
     const [singleNews, setsinglenews] = useState({});
+
+
+    const UpdatedTime = moment(singleNews.publishedAt).fromNow();
+    console.log(Date);
     
       function showLastDiv(){
         document.getElementById('RightDiv').style.display = "block";
@@ -98,7 +104,7 @@ const Home = () => {
           <div className="col-sm-6 display" id="RightDiv">
             <div className="right-div font-weight-bold">
               <div className="right-title">{singleNews.title}</div>
-              <p className="published-at">Publishes at : {singleNews.publishedAt}</p>
+              <p className="published-at">Published at : {UpdatedTime}</p>
               <img className="right-img" src={singleNews.urlToImage} />
               <div className="right-description">{singleNews.description}</div>
               <div className="right-description">{singleNews.content}</div>
@@ -141,7 +147,7 @@ const Home = () => {
         <div className="mobile-description-div" id="Description-div">
           <button className="back-btn" onClick={backToHome}>&lt;</button>
           <div className="right-title">{singleNews.title}</div>
-          <p className="published-at">Publishes at : {singleNews.publishedAt}</p>
+          <p className="published-at">Published at : {UpdatedTime}</p>
           <img className="right-img" src={singleNews.urlToImage} />
           <div className="right-description">{singleNews.description}</div>
           <div className="right-description">{singleNews.content}</div>
