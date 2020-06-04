@@ -188,9 +188,6 @@
 
 /* mobile view css starts here */
 
-.display{
-  display: none;
-}
 
 .mobile-dropdown-div{
   display: block;
@@ -213,7 +210,6 @@
 }
 
 .mobile-description-div{
-  display: none;
   margin: 1rem;
 }
 

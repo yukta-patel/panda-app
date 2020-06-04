@@ -22,16 +22,9 @@ import { useSelector } from "react-redux";
 
 const CountryList = () => {
 
-  function HideLastDiv() {
-    document.getElementById('RightDiv').style.display = "none";
-  }
+const dispatch = useDispatch();
 
-  const { loading, news } = useSelector(state => ({
-    loading: state.newsReducer.loading,
-    news: state.newsReducer.news,
-  }));
 
-  const dispatch = useDispatch();
 
   const CountryArray = [
     { key: "in", value: "INDIA", img: india },
@@ -58,8 +51,8 @@ const CountryList = () => {
       {CountryArray !== null &&
         CountryArray.map((country) => (
           <div className="row mt-1">
-            <div className="col-4"><img className="flag" src={country.img} alt="indian-flag" onClick={() => { dispatch(fetchNews(country.key));HideLastDiv()}} /></div>
-            <div className="col-6 country-name"><p onClick={() => { dispatch(fetchNews(country.key));HideLastDiv()}}>{country.value}</p></div>
+            <div className="col-4"><img className="flag" src={country.img} alt="indian-flag" onClick={() => { dispatch(fetchNews(country.key))}} /></div>
+            <div className="col-6 country-name"><p onClick={() => { dispatch(fetchNews(country.key))}}>{country.value}</p></div>
           </div>
         ))}
 

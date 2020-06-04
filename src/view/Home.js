@@ -17,30 +17,24 @@ const Home = () => {
   }));
 
   const [singleNews, setsinglenews] = useState({});
+  const [showDescriptionDiv, setshowDescriptionDiv] = useState(false);
+  const [showMobileTitle, setshowMobileTitle] = useState(false);
+  const [showMobileDescription, setshowMobileDescription] = useState(false);
 
 
   const UpdatedTime = moment(singleNews.publishedAt).fromNow();
 
 
-  function showLastDiv() {
-    document.getElementById('RightDiv').style.display = "block";
-  }
-
   const SetCountryNews = (event) => {
-    document.getElementById('title-div').style.display = "block";
-    document.getElementById('Description-div').style.display = "none";
+    setshowMobileTitle(true);
+    setshowMobileDescription(false);
     dispatch(fetchNews(event.target.value))
   }
 
-  function HideNewsTitle() {
-    document.getElementById('title-div').style.display = "none";
-    document.getElementById('Description-div').style.display = "block"
-  }
-
   function backToHome() {
-    document.getElementById('dropdown-div').style.display = "block";
-    document.getElementById('title-div').style.display = "block";
-    document.getElementById('Description-div').style.display = "none"
+    setshowMobileTitle(true);
+    setshowMobileDescription(false);
+
   }
 
 
@@ -90,7 +84,7 @@ const Home = () => {
                           <div className="news-title-div">
                             <div className="news-title">{news.title}</div>
                             <div className="news-source">-{news.source.name}</div>
-                            <div className="read-more"><p onClick={() => { setsinglenews(news); showLastDiv() }}>Read More</p></div>
+                            <div className="read-more"><p onClick={() => { setsinglenews(news); setshowDescriptionDiv(true) }}>Read More</p></div>
                           </div>
                         </div>
                       ))}
@@ -100,18 +94,18 @@ const Home = () => {
             </div>
           </div>
 
-
-          <div className="col-sm-6 display" id="RightDiv">
-            <div className="right-div font-weight-bold">
-              <div className="right-title">{singleNews.title}</div>
-              <p className="published-at">Published at : {UpdatedTime}</p>
-              <img className="right-img" src={singleNews.urlToImage} />
-              <div className="right-description">{singleNews.description}</div>
-              <div className="right-description">{singleNews.content}</div>
-              <div><p className="mt-3 more-information">For more information <a href={singleNews.url}>click here</a></p></div>
+          {showDescriptionDiv &&
+            <div className="col-sm-6" id="RightDiv">
+              <div className="right-div font-weight-bold">
+                <div className="right-title">{singleNews.title}</div>
+                <p className="published-at">Published at : {UpdatedTime}</p>
+                <img className="right-img" src={singleNews.urlToImage} />
+                <div className="right-description">{singleNews.description}</div>
+                <div className="right-description">{singleNews.content}</div>
+                <div><p className="mt-3 more-information">For more information <a href={singleNews.url}>click here</a></p></div>
+              </div>
             </div>
-          </div>
-
+          }
 
         </div>
       </div>
@@ -126,33 +120,37 @@ const Home = () => {
             ))}
         </select>
 
-        <div className="mobile-title-div" id="title-div">
-          {loading ? (
-            <div className="loading">Loding...</div>
-          ) : (
-              <div>
-                {news !== null &&
-                  news.map(news => (
-                    <div className="news-title-div">
-                      <div className="news-title">{news.title}</div>
-                      <div className="news-source">-{news.source.name}</div>
-                      <div className="read-more"><p onClick={() => { setsinglenews(news); HideNewsTitle() }}>Read More</p></div>
-                    </div>
-                  ))}
+        {showMobileTitle &&
+          <div className="mobile-title-div" id="title-div">
+            {loading ? (
+              <div className="loading">Loding...</div>
+            ) : (
+                <div>
+                  {news !== null &&
+                    news.map(news => (
+                      <div className="news-title-div">
+                        <div className="news-title">{news.title}</div>
+                        <div className="news-source">-{news.source.name}</div>
+                        <div className="read-more"><p onClick={() => { setsinglenews(news); setshowMobileDescription(true); setshowMobileTitle(false) }}>Read More</p></div>
+                      </div>
+                    ))}
 
-              </div>
-            )}
-        </div>
+                </div>
+              )}
+          </div>
+        }
 
-        <div className="mobile-description-div" id="Description-div">
-          <button className="back-btn" onClick={backToHome}>&lt;</button>
-          <div className="right-title">{singleNews.title}</div>
-          <p className="published-at">Published at : {UpdatedTime}</p>
-          <img className="right-img" src={singleNews.urlToImage} />
-          <div className="right-description">{singleNews.description}</div>
-          <div className="right-description">{singleNews.content}</div>
-          <div><p className="mt-3 more-information">For more information <a href={singleNews.url}>click here</a></p></div>
-        </div>
+        {showMobileDescription &&
+          <div className="mobile-description-div" id="Description-div">
+            <button className="back-btn" onClick={backToHome}>&lt;</button>
+            <div className="right-title">{singleNews.title}</div>
+            <p className="published-at">Published at : {UpdatedTime}</p>
+            <img className="right-img" src={singleNews.urlToImage} />
+            <div className="right-description">{singleNews.description}</div>
+            <div className="right-description">{singleNews.content}</div>
+            <div><p className="mt-3 more-information">For more information <a href={singleNews.url}>click here</a></p></div>
+          </div>
+        }
 
       </div>
 

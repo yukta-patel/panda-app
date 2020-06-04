@@ -6,19 +6,14 @@ export const fetchNews = (countryName) => {
   return dispach => {
     dispach({ type: "NEWS_FETCH_PENDING" });
 
-    try{
-      axios.get(url).then(res => {
-        dispach({ type: "NEWS_FETCH_SUCCESS", news: res.data.articles });
+
+    axios.get(url).then(res => {
+      dispach({ type: "NEWS_FETCH_SUCCESS", news: res.data.articles });
+    })
+      .catch((error) => {
+        dispach({ type: "NEWS_FETCH_ERROR", message: error.message });
+        alert(error.message);
       });
-    }
-
-    catch{
-      alert("error");
-    }
-
-    // axios.get(url).then(res => {
-    //   dispach({ type: "NEWS_FETCH_SUCCESS", news: res.data.articles });
-    // });
   };
 };
 
